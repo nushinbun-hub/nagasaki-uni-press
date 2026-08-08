@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>長崎大学新聞社</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <!-- 上段：ロゴ -->
+        <div class="header-top">
+    
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="長崎大学新聞社">
+                </a>
+                <p class="since">Since 2025</p>
+            </div>
+    
+        </div>
+    
+    
+        <!-- 下段：ナビゲーション -->
+        <div class="header-nav">
+    
+            <nav>
+
+                <a href="index.html">ホーム</a>
+                
+                <div class="dropdown">
+                
+                    <a href="news.html">ニュース</a>
+                
+                    <div class="dropdown-content">
+                
+                        <a href="news-category.html">ニュース</a>
+                
+                        <a href="career.html">進学・就職</a>
+                
+                        <a href="exam.html">受験</a>
+                
+                        <a href="interview.html">インタビュー</a>
+                
+                        <a href="english.html">English</a>
+                
+                    </div>
+                
+                </div>
+                
+                <a href="oshirase.html">お知らせ</a>
+                
+                <a href="about.html">新聞社について</a>
+                
+                </nav>
+
+                <div class="search-box">
+
+                    <span class="search-icon">🔍</span>
+                
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="記事を検索...">
+                
+                </div>
+    
+        </div>
+    
+    </header>
+
+
+
+<main>
+
+
+    <!-- 注目記事スライダー -->
+
+    <section class="featured-news">
+
+        <h2>注目記事</h2>
+    
+        <div class="featured-slider" id="featured-slider">
+    
+        </div>
+    
+    </section>
+
+
+
+
+    <!-- 最新記事 -->
+
+    <section class="latest-news">
+
+        <h2>最新記事</h2>
+    
+        <div class="news-grid" id="news-grid">
+    
+        </div>
+    
+    
+        <div class="more-news">
+    
+            <a href="news.html">
+                ニュース一覧を見る →
+            </a>
+    
+        </div>
+    
+    
+    </section>
+
+
+</main>
+
+
+
+
+<footer>
+
+    <p>&copy; 2025 長崎大学新聞社</p>
+
+</footer>
+
+
+
+<script src="js/article-data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/article.js"></script>
+
+</body>
+</html>

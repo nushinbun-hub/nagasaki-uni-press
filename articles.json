@@ -1,0 +1,134 @@
+[
+{
+"id": 1,
+"title": "長崎大学新聞社サイト公開",
+"category": "ニュース",
+"summary": "長崎大学新聞社のWebサイトを公開しました",
+"content": "サイト公開のお知らせ本文です",
+"image": "images/article1.jpg",
+"date": "2025-08-01",
+"link": "article1.html",
+"featured": true
+}
+,
+{
+"id": 2,
+"title": "キャリア講座開催",
+"category": "進学・就職",
+"summary": "就職支援イベントを取材しました",
+"content": "記事本文です",
+"image": "images/article2.jpg",
+"date": "2025-07-30",
+"link": "article2.html",
+"featured": true
+}
+,
+{
+"id": 3,
+"title": "入試対策講座",
+"category": "受験",
+"summary": "受験生向け講座を紹介します",
+"content": "記事本文です",
+"image": "images/article3.jpg",
+"date": "2025-07-28",
+"link": "article3.html",
+"featured": false
+}
+,
+{
+"id": 4,
+"title": "学生インタビュー",
+"category": "インタビュー",
+"summary": "学生へのインタビュー記事です",
+"content": "記事本文です",
+"image": "images/article4.jpg",
+"date": "2025-07-25",
+"link": "article4.html",
+"featured": false
+}
+,
+{
+"id": 5,
+"title": "Nagasaki University News",
+"category": "English",
+"summary": "English記事です",
+"content": "English content",
+"image": "images/article5.jpg",
+"date": "2025-07-20",
+"link": "article5.html",
+"featured": false
+}
+,
+{
+"id": 6,
+"title": "オープンキャンパス開催",
+"category": "ニュース",
+"summary": "高校生向けイベントを開催しました",
+"content": "記事本文です",
+"image": "images/article6.jpg",
+"date": "2025-07-18",
+"link": "article6.html",
+"featured": false
+}
+,
+{
+"id": 7,
+"title": "研究発表会開催",
+"category": "ニュース",
+"summary": "研究成果を発表しました",
+"content": "記事本文です",
+"image": "images/article7.jpg",
+"date": "2025-07-15",
+"link": "article7.html",
+"featured": false
+}
+,
+{
+"id": 8,
+"title": "学生交流イベント",
+"category": "ニュース",
+"summary": "学生交流会を開催しました",
+"content": "記事本文です",
+"image": "images/article8.jpg",
+"date": "2025-07-12",
+"link": "article8.html",
+"featured": false
+}
+,
+{
+"id": 9,
+"title": "図書館リニューアル",
+"category": "ニュース",
+"summary": "図書館が新しくなりました",
+"content": "記事本文です",
+"image": "images/article9.jpg",
+"date": "2025-07-10",
+"link": "article9.html",
+"featured": false
+}
+,
+{
+"id": 10,
+"title": "サークル紹介",
+"category": "ニュース",
+"summary": "サークル活動を紹介します",
+"content": "記事本文です",
+"image": "images/article10.jpg",
+"date": "2025-07-08",
+"link": "article10.html",
+"featured": false
+}
+,
+{
+"id": 11,
+"title": "留学説明会開催",
+"category": "ニュース",
+"summary": "留学説明会を開催しました",
+"content": "記事本文です",
+"image": "images/article11.jpg",
+"date": "2025-07-05",
+"link": "article11.html",
+"featured": false
+}
+
+]
