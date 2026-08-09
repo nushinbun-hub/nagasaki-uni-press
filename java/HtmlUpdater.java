@@ -71,82 +71,29 @@ public class HtmlUpdater {
 
 
 
-    // 記事詳細ページ保存
+    public static void savePage(
+        String filename,
+        String content
+){
 
-    public static void saveArticlePage(
-            String filename,
-            String content
+    try(
+        FileWriter writer =
+        new FileWriter(filename)
     ){
 
-        try{
+        writer.write(content);
 
-
-            FileWriter writer =
-                    new FileWriter(filename);
-
-
-
-            writer.write(content);
-
-
-
-            writer.close();
-
-
-
-            System.out.println(
-                filename + " 作成完了"
-            );
-
-
-        }
-        catch(Exception e){
-
-            e.printStackTrace();
-
-        }
+        System.out.println(
+            filename + " 作成完了"
+        );
 
     }
+    catch(Exception e){
 
-
-
-
-    // ニュース一覧ページ保存
-
-    public static void saveNewsPage(
-            String filename,
-            String content
-    ){
-
-        try{
-
-
-            FileWriter writer =
-                    new FileWriter(filename);
-
-
-
-            writer.write(content);
-
-
-
-            writer.close();
-
-
-
-            System.out.println(
-                filename + " 作成完了"
-            );
-
-
-        }
-        catch(Exception e){
-
-            e.printStackTrace();
-
-        }
+        e.printStackTrace();
 
     }
+}
 
 
 }

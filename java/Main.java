@@ -79,7 +79,7 @@ String articleHtml =
     pageGenerator.generateArticlePage(article);
 
 
-HtmlUpdater.saveArticlePage(
+HtmlUpdater.savePage(
     article.getLink(),
     articleHtml
 );
@@ -140,7 +140,7 @@ for(int page = 1; page <= totalPages; page++){
 
 
 
-    HtmlUpdater.saveNewsPage(
+    HtmlUpdater.savePage(
             filename,
             newsPage
     );
@@ -156,7 +156,7 @@ CategoryPageGenerator categoryGenerator =
 
 // ニュース
 
-HtmlUpdater.saveNewsPage(
+HtmlUpdater.savePage(
         "news-category.html",
         categoryGenerator.generateCategoryPage(
                 "ニュース",
@@ -167,7 +167,7 @@ HtmlUpdater.saveNewsPage(
 
 // 進学・就職
 
-HtmlUpdater.saveNewsPage(
+HtmlUpdater.savePage(
         "career.html",
         categoryGenerator.generateCategoryPage(
                 "進学・就職",
@@ -178,7 +178,7 @@ HtmlUpdater.saveNewsPage(
 
 // 受験
 
-HtmlUpdater.saveNewsPage(
+HtmlUpdater.savePage(
         "exam.html",
         categoryGenerator.generateCategoryPage(
                 "受験",
@@ -189,7 +189,7 @@ HtmlUpdater.saveNewsPage(
 
 // インタビュー
 
-HtmlUpdater.saveNewsPage(
+HtmlUpdater.savePage(
         "interview.html",
         categoryGenerator.generateCategoryPage(
                 "インタビュー",
@@ -200,7 +200,7 @@ HtmlUpdater.saveNewsPage(
 
 // English
 
-HtmlUpdater.saveNewsPage(
+HtmlUpdater.savePage(
         "english.html",
         categoryGenerator.generateCategoryPage(
                 "English",
