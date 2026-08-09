@@ -1,197 +1,116 @@
 public class ArticlePageGenerator {
 
+    public String generateArticlePage(
+            Article article
+    ){
 
-    public String generateArticlePage(Article article){
+        // 本文を段落ごとにHTMLへ変換
+        String contentHtml =
+                convertContentToHtml(
+                    article.getContent()
+                );
 
 
         return """
-<!DOCTYPE html>
-<html lang="ja">
+        
+        ホーム
 
+        <a href="news.html">ニュース</a>
 
-<head>
+        <div class="dropdown-content">
 
-<meta charset="UTF-8">
+            <a href="news-category.html">ニュース</a>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <a href="career.html">進学・就職</a>
 
+            <a href="exam.html">受験</a>
 
-<title>%s | 長崎大学新聞社</title>
+            <a href="interview.html">インタビュー</a>
 
+            <a href="english.html">English</a>
 
-<link rel="stylesheet" href="css/style.css">
+        </div>
 
+        お知らせ
 
-</head>
+        新聞社について
 
 
+        %s
 
-<body>
 
+        %s
 
 
-<header>
+        %s
 
 
-<div class="header-top">
+        %s
 
 
-<div class="logo">
+        %s
 
-<a href="index.html">
 
-<img src="images/logo.png" alt="長崎大学新聞社">
+        %s
 
-</a>
+        """.formatted(
 
+            article.getTitle(),
 
-<p class="since">Since 2025</p>
+            article.getTitle(),
 
+            article.getCategory(),
 
-</div>
+            article.getImage(),
 
+            article.getSummary(),
 
-</div>
+            contentHtml,
 
+            article.getDate()
 
+        );
 
-<div class="header-nav">
+    }
 
 
-<nav>
+    // ==============================
+    // 本文をHTMLの段落へ変換
+    // ==============================
 
-<a href="index.html">ホーム</a>
+    private String convertContentToHtml(
+            String content
+    ){
 
-<div class="dropdown">
+        StringBuilder html =
+                new StringBuilder();
 
-    <a href="news.html">ニュース</a>
 
-    <div class="dropdown-content">
+        String[] paragraphs =
+                content.split(
+                    "\\R\\s*\\R"
+                );
 
-        <a href="news-category.html">ニュース</a>
 
-        <a href="career.html">進学・就職</a>
+        for(String paragraph : paragraphs){
 
-        <a href="exam.html">受験</a>
+            if(paragraph.trim().isEmpty()){
+                continue;
+            }
 
-        <a href="interview.html">インタビュー</a>
 
-        <a href="english.html">English</a>
+            html.append("<p>\n");
 
-    </div>
+            html.append(
+                paragraph.trim()
+            );
 
-</div>
+            html.append("\n</p>\n");
 
-<a href="oshirase.html">お知らせ</a>
+        }
 
-<a href="about.html">新聞社について</a>
 
-</nav>
-
-
-</div>
-
-
-</header>
-
-
-
-
-<main>
-
-
-
-<section class="article-page">
-
-
-<h1>%s</h1>
-
-
-<p class="category %s">
-%s
-</p>
-
-
-<img class="article-image"
-src="%s"
-alt="%s">
-
-
-
-<p class="article-summary">
-
-%s
-
-</p>
-
-
-
-
-<div class="article-content">
-
-%s
-
-</div>
-
-
-
-
-<small>
-
-%s
-
-</small>
-
-
-
-</section>
-
-
-
-</main>
-
-
-
-
-
-<footer>
-
-
-<p>&copy; 2025 長崎大学新聞社</p>
-
-
-</footer>
-
-
-
-
-</body>
-
-
-</html>
-"""
-    .formatted(
-
-        article.getTitle(),
-    
-        article.getTitle(),
-    
-        article.getCategory(),
-    
-        article.getCategory(),
-    
-        article.getImage(),
-    
-        article.getTitle(),
-    
-        article.getSummary(),
-    
-        article.getContent(),
-    
-        article.getDate()
-    
-    );
-
+        return html.toString();
 
     }
 
