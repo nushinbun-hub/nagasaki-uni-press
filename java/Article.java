@@ -3,6 +3,7 @@ public class Article {
     private int id;
     private String title;
     private String category;
+    private String author;
     private String summary;
     private String content;
     private String image;
@@ -10,12 +11,12 @@ public class Article {
     private String link;
     private boolean featured;
 
-
     // コンストラクタ
     public Article(
             int id,
             String title,
             String category,
+            String author,
             String summary,
             String content,
             String image,
@@ -26,9 +27,10 @@ public class Article {
 
         this.id = id;
         this.title = title;
-        this.summary = summary;
         this.category = category;
-        this.content = content; 
+        this.author = author;
+        this.summary = summary;
+        this.content = content;
         this.image = image;
         this.date = date;
         this.link = link;
@@ -36,21 +38,22 @@ public class Article {
 
     }
 
-
     // getter
 
     public int getId() {
         return id;
     }
 
-
     public String getTitle() {
         return title;
     }
 
-
     public String getCategory() {
         return category;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public String getSummary() {
@@ -61,21 +64,17 @@ public class Article {
         return content;
     }
 
-
     public String getImage() {
         return image;
     }
-
 
     public String getDate() {
         return date;
     }
 
-
     public String getLink() {
         return link;
     }
-
 
     public boolean isFeatured() {
         return featured;

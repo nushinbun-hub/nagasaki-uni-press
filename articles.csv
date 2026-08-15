@@ -1,12 +1,12 @@
-id,title,category,summary,content,image,date,link,featured
-1,長崎大学新聞社サイト公開,ニュース,長崎大学新聞社のWebサイトを公開しました,サイト公開のお知らせ本文です,images/article1.jpg,2025-08-01,article1.html,true
-2,キャリア講座開催,進学・就職,就職支援イベントを取材しました,記事本文です,images/article2.jpg,2025-07-30,article2.html,true
-3,入試対策講座,受験,受験生向け講座を紹介します,記事本文です,images/article3.jpg,2025-07-28,article3.html,false
-4,学生インタビュー,インタビュー,学生へのインタビュー記事です,記事本文です,images/article4.jpg,2025-07-25,article4.html,false
-5,Nagasaki University News,English,English記事です,English content,images/article5.jpg,2025-07-20,article5.html,false
-6,オープンキャンパス開催,ニュース,高校生向けイベントを開催しました,記事本文です,images/article6.jpg,2025-07-18,article6.html,false
-7,研究発表会開催,ニュース,研究成果を発表しました,記事本文です,images/article7.jpg,2025-07-15,article7.html,false
-8,学生交流イベント,ニュース,学生交流会を開催しました,記事本文です,images/article8.jpg,2025-07-12,article8.html,false
-9,図書館リニューアル,ニュース,図書館が新しくなりました,記事本文です,images/article9.jpg,2025-07-10,article9.html,false
-10,サークル紹介,ニュース,サークル活動を紹介します,記事本文です,images/article10.jpg,2025-07-08,article10.html,false
-11,test留学説明会開催,ニュース,留学説明会を開催しました,記事本文です,images/article11.jpg,2025-07-05,article11.html,false
+id,title,category,author,summary,content,image,date,link,featured
+1,長崎大学新聞社サイト公開,ニュース,長崎大学新聞社,長崎大学新聞社のWebサイトを公開しました,サイト公開のお知らせ本文です,images/article1.jpg,2025-08-01,article1.html,true
+2,キャリア講座開催,進学・就職,長崎大学新聞社,就職支援イベントを取材しました,記事本文です,images/article2.jpg,2025-07-30,article2.html,true
+3,入試対策講座,受験,長崎大学新聞社,受験生向け講座を紹介します,記事本文です,images/article3.jpg,2025-07-28,article3.html,false
+4,学生インタビュー,インタビュー,長崎大学新聞社,学生へのインタビュー記事です,記事本文です,images/article4.jpg,2025-07-25,article4.html,false
+5,Nagasaki University News,English,長崎大学新聞社,English記事です,English content,images/article5.jpg,2025-07-20,article5.html,false
+6,オープンキャンパス開催,ニュース,長崎大学新聞社,高校生向けイベントを開催しました,記事本文です,images/article6.jpg,2025-07-18,article6.html,false
+7,研究発表会開催,ニュース,長崎大学新聞社,研究成果を発表しました,記事本文です,images/article7.jpg,2025-07-15,article7.html,false
+8,学生交流イベント,ニュース,長崎大学新聞社,学生交流会を開催しました,記事本文です,images/article8.jpg,2025-07-12,article8.html,false
+9,図書館リニューアル,ニュース,長崎大学新聞社,図書館が新しくなりました,記事本文です,images/article9.jpg,2025-07-10,article9.html,false
+10,サークル紹介,ニュース,長崎大学新聞社,サークル活動を紹介します,記事本文です,images/article10.jpg,2025-07-08,article10.html,false
+11,test留学説明会開催,ニュース,長崎大学新聞社,留学説明会を開催しました,記事本文です,images/article11.jpg,2025-07-05,article11.html,false
