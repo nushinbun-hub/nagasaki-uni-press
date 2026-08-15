@@ -1,13 +1,15 @@
 public class ArticlePageGenerator {
 
+    public String generateArticlePage(Article article) {
 
-    public String generateArticlePage(Article article){
-
+        String contentHtml =
+                convertContentToHtml(
+                        article.getContent()
+                );
 
         return """
 <!DOCTYPE html>
 <html lang="ja">
-
 
 <head>
 
@@ -15,26 +17,17 @@ public class ArticlePageGenerator {
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>%s | 長崎大学新聞社</title>
-
 
 <link rel="stylesheet" href="css/style.css">
 
-
 </head>
-
-
 
 <body>
 
-
-
 <header>
 
-
 <div class="header-top">
-
 
 <div class="logo">
 
@@ -44,19 +37,13 @@ public class ArticlePageGenerator {
 
 </a>
 
-
 <p class="since">Since 2025</p>
 
-
 </div>
 
-
 </div>
-
-
 
 <div class="header-nav">
-
 
 <nav>
 
@@ -64,21 +51,21 @@ public class ArticlePageGenerator {
 
 <div class="dropdown">
 
-    <a href="news.html">ニュース</a>
+<a href="news.html">ニュース</a>
 
-    <div class="dropdown-content">
+<div class="dropdown-content">
 
-        <a href="news-category.html">ニュース</a>
+<a href="news-category.html">ニュース</a>
 
-        <a href="career.html">進学・就職</a>
+<a href="career.html">進学・就職</a>
 
-        <a href="exam.html">受験</a>
+<a href="exam.html">受験</a>
 
-        <a href="interview.html">インタビュー</a>
+<a href="interview.html">インタビュー</a>
 
-        <a href="english.html">English</a>
+<a href="english.html">English</a>
 
-    </div>
+</div>
 
 </div>
 
@@ -88,35 +75,31 @@ public class ArticlePageGenerator {
 
 </nav>
 
-
 </div>
-
 
 </header>
 
-
-
-
 <main>
-
-
 
 <section class="article-page">
 
+<p class="category %s">
+
+%s
+
+</p>
 
 <h1>%s</h1>
 
+<p class="article-author">
 
-<p class="category %s">
-%s
+執筆者：%s
+
 </p>
-
 
 <img class="article-image"
 src="%s"
 alt="%s">
-
-
 
 <p class="article-summary">
 
@@ -124,17 +107,11 @@ alt="%s">
 
 </p>
 
-
-
-
 <div class="article-content">
 
 %s
 
 </div>
-
-
-
 
 <small>
 
@@ -142,56 +119,74 @@ alt="%s">
 
 </small>
 
-
-
 </section>
-
-
 
 </main>
 
-
-
-
-
 <footer>
-
 
 <p>&copy; 2025 長崎大学新聞社</p>
 
-
 </footer>
-
-
-
 
 </body>
 
-
 </html>
-"""
-    .formatted(
+""".formatted(
 
-        article.getTitle(),
-    
-        article.getTitle(),
-    
-        article.getCategory(),
-    
-        article.getCategory(),
-    
-        article.getImage(),
-    
-        article.getTitle(),
-    
-        article.getSummary(),
-    
-        article.getContent(),
-    
-        article.getDate()
-    
-    );
+                article.getTitle(),
 
+                article.getCategory(),
+
+                article.getCategory(),
+
+                article.getTitle(),
+
+                article.getAuthor(),
+
+                article.getImage(),
+
+                article.getTitle(),
+
+                article.getSummary(),
+
+                contentHtml,
+
+                article.getDate()
+
+        );
+
+    }
+
+    private String convertContentToHtml(
+            String content
+    ) {
+
+        StringBuilder html =
+                new StringBuilder();
+
+        String[] paragraphs =
+                content.split(
+                        "\\R\\s*\\R"
+                );
+
+        for (String paragraph : paragraphs) {
+
+            if (paragraph.trim().isEmpty()) {
+                continue;
+            }
+
+            html.append("<p>\n");
+
+            html.append(
+                    paragraph.trim()
+            );
+
+            html.append("\n</p>\n");
+
+        }
+
+        return html.toString();
 
     }
 
