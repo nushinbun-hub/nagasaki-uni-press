@@ -7,11 +7,11 @@ public class Article {
     private String summary;
     private String content;
     private String image;
+    private String caption;
     private String date;
     private String link;
     private boolean featured;
 
-    // コンストラクタ
     public Article(
             int id,
             String title,
@@ -20,6 +20,7 @@ public class Article {
             String summary,
             String content,
             String image,
+            String caption,
             String date,
             String link,
             boolean featured
@@ -32,13 +33,12 @@ public class Article {
         this.summary = summary;
         this.content = content;
         this.image = image;
+        this.caption = caption;
         this.date = date;
         this.link = link;
         this.featured = featured;
 
     }
-
-    // getter
 
     public int getId() {
         return id;
@@ -66,6 +66,10 @@ public class Article {
 
     public String getImage() {
         return image;
+    }
+
+    public String getCaption() {
+        return caption;
     }
 
     public String getDate() {

@@ -88,7 +88,7 @@ public class CsvReader {
                                 );
 
 
-                        if(data.length < 10){
+                        if(data.length < 11){
 
                             System.out.println(
                                 "CSVの列数が不足しています: "
@@ -103,9 +103,7 @@ public class CsvReader {
                                 Article article =
         new Article(
 
-            Integer.parseInt(
-                data[0].trim()
-            ),
+            Integer.parseInt(data[0].trim()),
 
             data[1],
 
@@ -123,8 +121,10 @@ public class CsvReader {
 
             data[8],
 
+            data[9],
+
             Boolean.parseBoolean(
-                data[9].trim()
+                data[10].trim()
             )
 
         );

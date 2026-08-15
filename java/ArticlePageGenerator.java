@@ -97,9 +97,47 @@ public class ArticlePageGenerator {
 
 </p>
 
+<h2>SNSテスト</h2>
+
+<div class="share-buttons">
+
+<a
+href="https://twitter.com/intent/tweet?text=%s&url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+target="_blank"
+class="share-button">
+
+X
+
+</a>
+
+<a
+href="https://social-plugins.line.me/lineit/share?url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+target="_blank"
+class="share-button">
+
+LINE
+
+</a>
+
+<a
+href="mailto:?subject=%s&body=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+class="share-button">
+
+✉
+
+</a>
+
+</div>
+
+<figure>
+
 <img class="article-image"
 src="%s"
 alt="%s">
+
+%s
+
+</figure>
 
 <p class="article-summary">
 
@@ -142,27 +180,35 @@ alt="%s">
 </html>
 """.formatted(
 
-                article.getTitle(),
+    article.getTitle(),
 
-                article.getCategory(),
+    article.getCategory(),
 
-                article.getCategory(),
+    article.getCategory(),
 
-                article.getTitle(),
+    article.getTitle(),
 
-                article.getAuthor(),
+    article.getAuthor(),
 
-                article.getImage(),
+    article.getTitle(),
+    article.getLink(),
 
-                article.getTitle(),
+    article.getLink(),
 
-                article.getSummary(),
+    article.getTitle(),
+    article.getLink(),
 
-                contentHtml,
+    article.getImage(),
 
-                article.getDate()
+    article.getTitle(),
 
-        );
+    article.getSummary(),
+
+    contentHtml,
+
+    article.getDate()
+
+);
 
     }
 
