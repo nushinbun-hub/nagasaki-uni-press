@@ -97,8 +97,6 @@ public class ArticlePageGenerator {
 
 </p>
 
-<h2>SNSテスト</h2>
-
 <div class="share-buttons">
 
 <a
