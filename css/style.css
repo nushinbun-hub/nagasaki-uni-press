@@ -218,8 +218,9 @@ footer{
 @media (max-width:480px){
 
     nav{
-        flex-direction:column;
-        gap:10px;
+        flex-direction:row;
+        gap:8px;
+        flex-wrap:nowrap;
     }
 
     main{
