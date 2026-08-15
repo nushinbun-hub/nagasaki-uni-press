@@ -119,6 +119,14 @@ alt="%s">
 
 </small>
 
+<br><br>
+
+<a href="news.html">
+
+← 記事一覧へ戻る
+
+</a>
+
 </section>
 
 </main>
