@@ -191,16 +191,20 @@ alt="%s">
     article.getAuthor(),
 
     article.getTitle(),
+
     article.getLink(),
 
     article.getLink(),
 
     article.getTitle(),
+
     article.getLink(),
 
     article.getImage(),
 
     article.getTitle(),
+
+    article.getCaption(),
 
     article.getSummary(),
 
