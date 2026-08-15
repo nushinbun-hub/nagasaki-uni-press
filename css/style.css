@@ -736,3 +736,8 @@ footer{
     transform: scale(1.1);
 
 }
+.article-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
