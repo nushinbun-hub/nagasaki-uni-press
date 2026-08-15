@@ -106,7 +106,7 @@ href="https://twitter.com/intent/tweet?text=%s&url=https://nushinbun-hub.github.
 target="_blank"
 class="share-button">
 
-X
+🐦
 
 </a>
 
@@ -115,7 +115,7 @@ href="https://social-plugins.line.me/lineit/share?url=https://nushinbun-hub.gith
 target="_blank"
 class="share-button">
 
-LINE
+💬
 
 </a>
 
