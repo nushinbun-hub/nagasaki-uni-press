@@ -81,89 +81,87 @@ public class ArticlePageGenerator {
 
 <main>
 
-<section class="article-page">
+<div class="article-layout">
 
-<p class="category %s">
+    <!-- 左：記事本文 -->
+    <section class="article-page">
 
-%s
+        <p class="category %s">
+            %s
+        </p>
 
-</p>
+        <h1>%s</h1>
 
-<h1>%s</h1>
+        <p class="article-author">
+            執筆者：%s
+        </p>
 
-<p class="article-author">
+        <div class="share-buttons">
 
-執筆者：%s
+            <a
+            href="https://twitter.com/intent/tweet?text=%s&url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+            target="_blank"
+            class="share-button">
 
-</p>
+            🐦
 
-<div class="share-buttons">
+            </a>
 
-<a
-href="https://twitter.com/intent/tweet?text=%s&url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
-target="_blank"
-class="share-button">
+            <a
+            href="https://social-plugins.line.me/lineit/share?url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+            target="_blank"
+            class="share-button">
 
-🐦
+            💬
 
-</a>
+            </a>
 
-<a
-href="https://social-plugins.line.me/lineit/share?url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
-target="_blank"
-class="share-button">
+            <a
+            href="mailto:?subject=%s&body=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+            class="share-button">
 
-💬
+            ✉
 
-</a>
+            </a>
 
-<a
-href="mailto:?subject=%s&body=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
-class="share-button">
+        </div>
 
-✉
+        <figure>
 
-</a>
+            <img class="article-image"
+            src="%s"
+            alt="%s">
+
+            %s
+
+        </figure>
+
+        <p class="article-summary">
+            %s
+        </p>
+
+        <div class="article-content">
+            %s
+        </div>
+
+        <small>
+            %s
+        </small>
+
+        <br><br>
+
+        <a href="news.html">
+            ← 記事一覧へ戻る
+        </a>
+
+    </section>
+
+
+        <!-- 右側は将来用のスペース -->
+    <aside class="article-sidebar">
+    </aside>
 
 </div>
-
-<figure>
-
-<img class="article-image"
-src="%s"
-alt="%s">
-
-%s
-
-</figure>
-
-<p class="article-summary">
-
-%s
-
-</p>
-
-<div class="article-content">
-
-%s
-
-</div>
-
-<small>
-
-%s
-
-</small>
-
-<br><br>
-
-<a href="news.html">
-
-← 記事一覧へ戻る
-
-</a>
-
-</section>
 
 </main>
 

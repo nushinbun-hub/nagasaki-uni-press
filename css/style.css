@@ -773,8 +773,53 @@ footer{
     transform: scale(1.1);
 
 }
+/* ==========================
+   記事ページ
+========================== */
+
+.article-layout {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.article-page {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
 .article-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
+    margin: 0;
 }
+
+/* 右側は今は空白 */
+.article-sidebar {
+    min-height: 100px;
+}
+
+
+/* スマートフォン */
+
+@media (max-width: 768px) {
+
+    .article-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .article-page {
+        padding: 20px;
+    }
+
+    .article-sidebar {
+        display: none;
+    }
+
+}
+
