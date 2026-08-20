@@ -834,3 +834,46 @@ footer{
     font-size:0.95rem;
     margin-bottom:20px;
 }
+
+.article-content {
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    line-height: 2;
+    color: #222;
+}
+
+.article-content p {
+    margin-bottom: 1.5em;
+}
+
+.article-page h1 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #222;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.article-date {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.article-author {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #777;
+    margin: 0 0 20px 0;
+}
+
+.article-caption {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: #777;
+    margin-top: 8px;
+    line-height: 1.5;
+}

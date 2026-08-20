@@ -20,6 +20,10 @@ public class ArticlePageGenerator {
     <title>%s | 長崎大学新聞社</title>
     
     <link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     </head>
     
@@ -137,7 +141,9 @@ public class ArticlePageGenerator {
                 src="%s"
                 alt="%s">
     
-                %s
+                <figcaption class="article-caption">
+    %s
+</figcaption>
     
             </figure>
     
@@ -214,33 +220,38 @@ public class ArticlePageGenerator {
         private String convertContentToHtml(
                 String content
         ) {
-    
+        
+            if (content == null || content.isEmpty()) {
+                return "";
+            }
+        
             StringBuilder html =
                     new StringBuilder();
-    
+        
             String[] paragraphs =
-                    content.split(
-                            "\\R\\s*\\R"
-                    );
-    
+                    content.split("\\\\n\\\\n");
+        
             for (String paragraph : paragraphs) {
-    
+        
                 if (paragraph.trim().isEmpty()) {
                     continue;
                 }
-    
+        
+                String text =
+                        paragraph
+                                .replace("\\n", "<br>\n")
+                                .trim();
+        
                 html.append("<p>\n");
-    
-                html.append(
-                        paragraph.trim()
-                );
-    
+        
+                html.append(text);
+        
                 html.append("\n</p>\n");
-    
+        
             }
-    
+        
             return html.toString();
-    
+        
         }
     
     }
