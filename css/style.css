@@ -823,3 +823,14 @@ footer{
 
 }
 
+.article-date{
+    color:#777;
+    font-size:0.9rem;
+    margin:8px 0 4px;
+}
+
+.article-author{
+    color:#555;
+    font-size:0.95rem;
+    margin-bottom:20px;
+}

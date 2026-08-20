@@ -169,7 +169,7 @@ public class CategoryPageGenerator {
         article.getCategory(),
         article.getCategory(),
         article.getTitle(),
-        article.getSummary(),
+        createExcerpt(article.getContent(), 100),
         article.getDate(),
         article.getLink()
 ));
@@ -203,9 +203,26 @@ public class CategoryPageGenerator {
 """);
 
 
-        return html.toString();
+return html.toString();
 
+}
 
+private String createExcerpt(String content, int maxLength) {
+
+    if (content == null || content.isEmpty()) {
+        return "";
     }
+
+    String text = content
+            .replaceAll("\\s+", " ")
+            .trim();
+
+    if (text.length() <= maxLength) {
+        return text;
+    }
+
+    return text.substring(0, maxLength) + "…";
+
+}
 
 }

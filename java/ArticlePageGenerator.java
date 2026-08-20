@@ -1,247 +1,246 @@
 public class ArticlePageGenerator {
 
-    public String generateArticlePage(Article article) {
-
-        String contentHtml =
-                convertContentToHtml(
-                        article.getContent()
-                );
-
-        return """
-<!DOCTYPE html>
-<html lang="ja">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>%s | 長崎大学新聞社</title>
-
-<link rel="stylesheet" href="css/style.css">
-
-</head>
-
-<body>
-
-<header>
-
-<div class="header-top">
-
-<div class="logo">
-
-<a href="index.html">
-
-<img src="images/logo.png" alt="長崎大学新聞社">
-
-</a>
-
-<p class="since">Since 2025</p>
-
-</div>
-
-</div>
-
-<div class="header-nav">
-
-<nav>
-
-<a href="index.html">ホーム</a>
-
-<div class="dropdown">
-
-<a href="news.html">ニュース</a>
-
-<div class="dropdown-content">
-
-<a href="news-category.html">ニュース</a>
-
-<a href="career.html">進学・就職</a>
-
-<a href="exam.html">受験</a>
-
-<a href="interview.html">インタビュー</a>
-
-<a href="english.html">English</a>
-
-</div>
-
-</div>
-
-<a href="oshirase.html">お知らせ</a>
-
-<a href="about.html">新聞社について</a>
-
-</nav>
-
-</div>
-
-</header>
-
-<main>
-
-<div class="article-layout">
-
-    <!-- 左：記事本文 -->
-    <section class="article-page">
-
-        <p class="category %s">
-            %s
-        </p>
-
-        <h1>%s</h1>
-
-        <p class="article-author">
-            執筆者：%s
-        </p>
-
-        <div class="share-buttons">
-
-            <a
-            href="https://twitter.com/intent/tweet?text=%s&url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
-            target="_blank"
-            class="share-button">
-
-            🐦
-
+        public String generateArticlePage(Article article) {
+    
+            String contentHtml =
+                    convertContentToHtml(
+                            article.getContent()
+                    );
+    
+            return """
+    <!DOCTYPE html>
+    <html lang="ja">
+    
+    <head>
+    
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>%s | 長崎大学新聞社</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    </head>
+    
+    <body>
+    
+    <header>
+    
+    <div class="header-top">
+    
+    <div class="logo">
+    
+    <a href="index.html">
+    
+    <img src="images/logo.png" alt="長崎大学新聞社">
+    
+    </a>
+    
+    <p class="since">Since 2025</p>
+    
+    </div>
+    
+    </div>
+    
+    <div class="header-nav">
+    
+    <nav>
+    
+    <a href="index.html">ホーム</a>
+    
+    <div class="dropdown">
+    
+    <a href="news.html">ニュース</a>
+    
+    <div class="dropdown-content">
+    
+    <a href="news-category.html">ニュース</a>
+    
+    <a href="career.html">進学・就職</a>
+    
+    <a href="exam.html">受験</a>
+    
+    <a href="interview.html">インタビュー</a>
+    
+    <a href="english.html">English</a>
+    
+    </div>
+    
+    </div>
+    
+    <a href="oshirase.html">お知らせ</a>
+    
+    <a href="about.html">新聞社について</a>
+    
+    </nav>
+    
+    </div>
+    
+    </header>
+    
+    <main>
+    
+    <div class="article-layout">
+    
+        <!-- 左：記事本文 -->
+    
+        <section class="article-page">
+    
+            <p class="category %s">
+                %s
+            </p>
+    
+            <h1>%s</h1>
+    
+            <p class="article-date">
+                %s
+            </p>
+    
+            <p class="article-author">
+                執筆者：%s
+            </p>
+    
+            <div class="share-buttons">
+    
+                <a
+                href="https://twitter.com/intent/tweet?text=%s&url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+                target="_blank"
+                class="share-button">
+    
+                🐦
+    
+                </a>
+    
+                <a
+                href="https://social-plugins.line.me/lineit/share?url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+                target="_blank"
+                class="share-button">
+    
+                💬
+    
+                </a>
+    
+                <a
+                href="mailto:?subject=%s&body=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
+                class="share-button">
+    
+                ✉
+    
+                </a>
+    
+            </div>
+    
+            <figure>
+    
+                <img class="article-image"
+                src="%s"
+                alt="%s">
+    
+                %s
+    
+            </figure>
+    
+            <div class="article-content">
+    
+                %s
+    
+            </div>
+    
+            <br><br>
+    
+            <a href="news.html">
+                ← 記事一覧へ戻る
             </a>
-
-            <a
-            href="https://social-plugins.line.me/lineit/share?url=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
-            target="_blank"
-            class="share-button">
-
-            💬
-
-            </a>
-
-            <a
-            href="mailto:?subject=%s&body=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
-            class="share-button">
-
-            ✉
-
-            </a>
-
-        </div>
-
-        <figure>
-
-            <img class="article-image"
-            src="%s"
-            alt="%s">
-
-            %s
-
-        </figure>
-
-        <p class="article-summary">
-            %s
-        </p>
-
-        <div class="article-content">
-            %s
-        </div>
-
-        <small>
-            %s
-        </small>
-
-        <br><br>
-
-        <a href="news.html">
-            ← 記事一覧へ戻る
-        </a>
-
-    </section>
-
-
+    
+        </section>
+    
+    
         <!-- 右側は将来用のスペース -->
-    <aside class="article-sidebar">
-    </aside>
-
-</div>
-
-</main>
-
-<footer>
-
-<p>&copy; 2025 長崎大学新聞社</p>
-
-</footer>
-
-</body>
-
-</html>
-""".formatted(
-
-    article.getTitle(),
-
-    article.getCategory(),
-
-    article.getCategory(),
-
-    article.getTitle(),
-
-    article.getAuthor(),
-
-    article.getTitle(),
-
-    article.getLink(),
-
-    article.getLink(),
-
-    article.getTitle(),
-
-    article.getLink(),
-
-    article.getImage(),
-
-    article.getTitle(),
-
-    article.getCaption(),
-
-    article.getSummary(),
-
-    contentHtml,
-
-    article.getDate()
-
-);
-
-    }
-
-    private String convertContentToHtml(
-            String content
-    ) {
-
-        StringBuilder html =
-                new StringBuilder();
-
-        String[] paragraphs =
-                content.split(
-                        "\\R\\s*\\R"
-                );
-
-        for (String paragraph : paragraphs) {
-
-            if (paragraph.trim().isEmpty()) {
-                continue;
-            }
-
-            html.append("<p>\n");
-
-            html.append(
-                    paragraph.trim()
-            );
-
-            html.append("\n</p>\n");
-
+    
+        <aside class="article-sidebar">
+        </aside>
+    
+    </div>
+    
+    </main>
+    
+    <footer>
+    
+    <p>&copy; 2025 長崎大学新聞社</p>
+    
+    </footer>
+    
+    </body>
+    
+    </html>
+    """.formatted(
+    
+        article.getTitle(),
+    
+        article.getCategory(),
+    
+        article.getCategory(),
+    
+        article.getTitle(),
+    
+        article.getDate(),
+    
+        article.getAuthor(),
+    
+        article.getTitle(),
+    
+        article.getLink(),
+    
+        article.getLink(),
+    
+        article.getTitle(),
+    
+        article.getLink(),
+    
+        article.getImage(),
+    
+        article.getTitle(),
+    
+        article.getCaption(),
+    
+        contentHtml
+    
+        );
+    
         }
-
-        return html.toString();
-
+    
+    
+        private String convertContentToHtml(
+                String content
+        ) {
+    
+            StringBuilder html =
+                    new StringBuilder();
+    
+            String[] paragraphs =
+                    content.split(
+                            "\\R\\s*\\R"
+                    );
+    
+            for (String paragraph : paragraphs) {
+    
+                if (paragraph.trim().isEmpty()) {
+                    continue;
+                }
+    
+                html.append("<p>\n");
+    
+                html.append(
+                        paragraph.trim()
+                );
+    
+                html.append("\n</p>\n");
+    
+            }
+    
+            return html.toString();
+    
+        }
+    
     }
-
-}
