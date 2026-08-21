@@ -14,6 +14,13 @@ public class CategoryPageGenerator {
                 new StringBuilder();
 
 
+        HeaderGenerator headerGenerator =
+                new HeaderGenerator();
+
+
+        String headerHtml =
+                headerGenerator.generateHeader();
+
 
         html.append("""
 <!DOCTYPE html>
@@ -35,74 +42,18 @@ public class CategoryPageGenerator {
 </head>
 
 
-
 <body>
 
-
-<header>
-
-
-<div class="header-top">
-
-<div class="logo">
-
-<a href="index.html">
-
-<img src="images/logo.png" alt="長崎大学新聞社">
-
-</a>
+""".formatted(
+        category
+));
 
 
-<p class="since">Since 2025</p>
+        html.append(headerHtml);
 
 
-</div>
-
-</div>
-
-
-
-<div class="header-nav">
-
-
-<nav>
-
-<a href="index.html">ホーム</a>
-
-<div class="dropdown">
-
-    <a href="news.html">ニュース</a>
-
-    <div class="dropdown-content">
-
-        <a href="news-category.html">ニュース</a>
-
-        <a href="career.html">進学・就職</a>
-
-        <a href="exam.html">受験</a>
-
-        <a href="interview.html">インタビュー</a>
-
-        <a href="english.html">English</a>
-
-    </div>
-
-</div>
-
-<a href="oshirase.html">お知らせ</a>
-
-<a href="about.html">新聞社について</a>
-
-</nav>
-
-
-</div>
-
-
-</header>
-
-
-
+        html.append("""
+    
 <main>
 
 
@@ -116,10 +67,8 @@ public class CategoryPageGenerator {
 
 """
         .formatted(
-            category,
             category
         ));
-
 
 
         for(Article article : articles){
@@ -177,7 +126,6 @@ public class CategoryPageGenerator {
         }
 
 
-
         html.append("""
 </div>
 
@@ -203,26 +151,35 @@ public class CategoryPageGenerator {
 """);
 
 
-return html.toString();
+        return html.toString();
 
-}
 
-private String createExcerpt(String content, int maxLength) {
-
-    if (content == null || content.isEmpty()) {
-        return "";
     }
 
-    String text = content
-            .replaceAll("\\s+", " ")
-            .trim();
 
-    if (text.length() <= maxLength) {
-        return text;
+    private String createExcerpt(
+            String content,
+            int maxLength
+    ) {
+
+        if (content == null || content.isEmpty()) {
+            return "";
+        }
+
+
+        String text = content
+                .replaceAll("\\s+", " ")
+                .trim();
+
+
+        if (text.length() <= maxLength) {
+            return text;
+        }
+
+
+        return text.substring(0, maxLength) + "…";
+
     }
 
-    return text.substring(0, maxLength) + "…";
-
-}
 
 }

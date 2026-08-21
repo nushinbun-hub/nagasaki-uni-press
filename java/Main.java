@@ -208,6 +208,17 @@ HtmlUpdater.savePage(
         )
 );
 
+// 検索ページ
+
+SearchPageGenerator searchGenerator =
+        new SearchPageGenerator();
+
+
+HtmlUpdater.savePage(
+        "search.html",
+        searchGenerator.generateSearchPage()
+);
+
         System.out.println(
             "HTML生成完了"
         );

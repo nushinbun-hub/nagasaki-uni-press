@@ -69,186 +69,171 @@ if(featuredSlider){
 
 }
 
-
-
-
-
 // ==============================
-// 全記事検索
-// articles.json使用
+// 全ページ共通検索
 // ==============================
-
 
 const searchInput =
     document.getElementById("searchInput");
 
 
-
-const newsGrid =
-    document.getElementById("news-grid");
-
-
-
-if(searchInput && newsGrid){
-
-
-
-    let allArticles = [];
-
-
-
-    fetch("articles.json")
-
-
-    .then(response => response.json())
-
-
-    .then(data => {
-
-
-        allArticles = data;
-
-
-    })
-
-
-    .catch(error => {
-
-
-        console.error(
-            "記事データ読み込みエラー:",
-            error
-        );
-
-
-    });
-
-
-
-
+if(searchInput){
 
     searchInput.addEventListener(
-        "keyup",
-        function(){
+        "keydown",
+        function(event){
+
+            // Enterキーで検索
+            if(event.key === "Enter"){
+
+                const keyword =
+                    searchInput.value.trim();
 
 
-
-            const keyword =
-                searchInput.value
-                .toLowerCase();
-
-
-
-            if(keyword === ""){
+                // 空欄なら何もしない
+                if(keyword === ""){
+                    return;
+                }
 
 
-                location.reload();
-
-
-                return;
-
+                // 検索結果ページへ移動
+                window.location.href =
+                    "search.html?q="
+                    + encodeURIComponent(keyword);
 
             }
 
+        }
+    );
+
+}
+
+// ==============================
+// 検索結果ページ
+// ==============================
+
+const searchResults =
+    document.getElementById("search-results");
 
 
+if(searchResults){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
 
-            const result =
-                allArticles.filter(article => {
+    const keyword =
+        params.get("q");
 
 
-
-                    const text =
-
-                        article.title +
-
-                        article.category +
-
-                        article.summary +
-
-                        article.content;
+    const searchTitle =
+        document.getElementById("search-title");
 
 
+    if(!keyword){
 
-                    return text
-                    .toLowerCase()
-                    .includes(keyword);
+        searchTitle.textContent =
+            "検索結果";
 
+        searchResults.innerHTML =
+            "<p>検索キーワードを入力してください。</p>";
 
+    }
+    else{
 
-                });
-
-
-
-
-
-            newsGrid.innerHTML = "";
-
+        searchTitle.textContent =
+            "「" + keyword + "」の検索結果";
 
 
+        fetch("articles.json")
+
+            .then(response => response.json())
+
+            .then(articles => {
+
+                const lowerKeyword =
+                    keyword.toLowerCase();
 
 
-            result.forEach(article => {
+                const result =
+                    articles.filter(article => {
+
+                        const text =
+                            article.title +
+                            article.category +
+                            article.summary +
+                            article.content;
 
 
+                        return text
+                            .toLowerCase()
+                            .includes(lowerKeyword);
 
-                newsGrid.innerHTML += `
+                    });
 
+
+                if(result.length === 0){
+
+                    searchResults.innerHTML =
+                        "<p>該当する記事がありません。</p>";
+
+                    return;
+
+                }
+
+
+                result.forEach(article => {
+
+                    searchResults.innerHTML += `
 
 <article class="news-item">
 
+    <img
+        src="${article.image}"
+        alt="${article.title}">
 
-<img src="${article.image}" alt="${article.title}">
+    <div class="news-content">
 
+        <p class="category ${article.category}">
+            ${article.category}
+        </p>
 
-<div class="news-content">
+        <h3>${article.title}</h3>
 
+        <p>${article.summary}</p>
 
-<p class="category ${article.category}">
+        <small>${article.date}</small>
 
-${article.category}
+        <br><br>
 
-</p>
+        <a href="${article.link}">
+            続きを読む →
+        </a>
 
-
-<h3>${article.title}</h3>
-
-
-<p>${article.summary}</p>
-
-
-<small>${article.date}</small>
-
-
-<br><br>
-
-
-<a href="${article.link}">
-
-続きを読む →
-
-</a>
-
-
-</div>
-
+    </div>
 
 </article>
 
-
 `;
 
+                });
 
+            })
+
+            .catch(error => {
+
+                console.error(
+                    "記事データ読み込みエラー:",
+                    error
+                );
+
+                searchResults.innerHTML =
+                    "<p>記事データを読み込めませんでした。</p>";
 
             });
 
-
-
-        }
-
-    );
-
-
+    }
 
 }

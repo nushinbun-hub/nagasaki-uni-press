@@ -1,24 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
+public class HeaderGenerator {
 
+    public String generateHeader() {
 
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>受験 | 長崎大学新聞社</title>
-
-
-<link rel="stylesheet" href="css/style.css">
-
-</head>
-
-
-<body>
-
+        return """
 <header>
 
     <div class="header-top">
@@ -85,72 +69,8 @@
     </div>
 
 </header>
+""";
 
-<main>
+    }
 
-
-<section class="latest-news">
-
-
-<h2>受験</h2>
-
-
-<div class="news-grid">
-
-<article class="news-item">
-
-
-<img src="images/article3.jpg" alt="入試対策講座">
-
-
-<div class="news-content">
-
-
-<p class="category 受験">
-受験
-</p>
-
-
-<h3>入試対策講座</h3>
-
-
-<p>記事本文です</p>
-
-
-<small>2025-07-28</small>
-
-
-<br><br>
-
-
-<a href="article3.html">
-続きを読む →
-</a>
-
-
-</div>
-
-
-</article>
-
-</div>
-
-
-</section>
-
-
-</main>
-
-
-
-<footer>
-
-<p>&copy; 2025 長崎大学新聞社</p>
-
-</footer>
-
-
-</body>
-
-
-</html>
+}

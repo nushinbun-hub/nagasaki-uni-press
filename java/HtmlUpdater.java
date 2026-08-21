@@ -22,10 +22,55 @@ public class HtmlUpdater {
 
 
             String html =
-                    Files.readString(file.toPath());
+                    Files.readString(
+                            file.toPath()
+                    );
 
 
+            // 共通ヘッダーを生成
+            HeaderGenerator headerGenerator =
+                    new HeaderGenerator();
 
+
+            String headerHtml =
+                    headerGenerator.generateHeader();
+
+
+            // テンプレートのヘッダーを
+            // 共通ヘッダーに置き換える
+            int headerStart =
+                    html.indexOf("<header>");
+
+
+            int headerEnd =
+                    html.indexOf("</header>");
+
+
+            if(
+                headerStart != -1
+                &&
+                headerEnd != -1
+            ){
+
+                headerEnd += "</header>".length();
+
+
+                html =
+                    html.substring(
+                        0,
+                        headerStart
+                    )
+                    +
+                    headerHtml
+                    +
+                    html.substring(
+                        headerEnd
+                    );
+
+            }
+
+
+            // 最新記事を挿入
             html = html.replace(
                 "<div class=\"news-grid\" id=\"news-grid\">",
                 "<div class=\"news-grid\" id=\"news-grid\">"
@@ -33,7 +78,7 @@ public class HtmlUpdater {
             );
 
 
-
+            // 注目記事を挿入
             html = html.replace(
                 "<div class=\"featured-slider\" id=\"featured-slider\">",
                 "<div class=\"featured-slider\" id=\"featured-slider\">"
@@ -41,17 +86,16 @@ public class HtmlUpdater {
             );
 
 
-
             FileWriter writer =
-                    new FileWriter(outputFile);
-
+                    new FileWriter(
+                            outputFile
+                    );
 
 
             writer.write(html);
 
 
             writer.close();
-
 
 
             System.out.println(
@@ -70,30 +114,30 @@ public class HtmlUpdater {
 
 
 
-
     public static void savePage(
-        String filename,
-        String content
-){
-
-    try(
-        FileWriter writer =
-        new FileWriter(filename)
+            String filename,
+            String content
     ){
 
-        writer.write(content);
+        try(
+            FileWriter writer =
+                    new FileWriter(filename)
+        ){
 
-        System.out.println(
-            filename + " 作成完了"
-        );
+            writer.write(content);
+
+
+            System.out.println(
+                filename + " 作成完了"
+            );
+
+        }
+        catch(Exception e){
+
+            e.printStackTrace();
+
+        }
 
     }
-    catch(Exception e){
-
-        e.printStackTrace();
-
-    }
-}
-
 
 }

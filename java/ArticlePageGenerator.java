@@ -1,11 +1,17 @@
 public class ArticlePageGenerator {
 
-        public String generateArticlePage(Article article) {
-    
-            String contentHtml =
-                    convertContentToHtml(
-                            article.getContent()
-                    );
+    public String generateArticlePage(Article article) {
+
+        HeaderGenerator headerGenerator =
+                new HeaderGenerator();
+
+        String headerHtml =
+                headerGenerator.generateHeader();
+
+        String contentHtml =
+                convertContentToHtml(
+                        article.getContent()
+                );
     
             return """
     <!DOCTYPE html>
@@ -29,59 +35,7 @@ public class ArticlePageGenerator {
     
     <body>
     
-    <header>
-    
-    <div class="header-top">
-    
-    <div class="logo">
-    
-    <a href="index.html">
-    
-    <img src="images/logo.png" alt="長崎大学新聞社">
-    
-    </a>
-    
-    <p class="since">Since 2025</p>
-    
-    </div>
-    
-    </div>
-    
-    <div class="header-nav">
-    
-    <nav>
-    
-    <a href="index.html">ホーム</a>
-    
-    <div class="dropdown">
-    
-    <a href="news.html">ニュース</a>
-    
-    <div class="dropdown-content">
-    
-    <a href="news-category.html">ニュース</a>
-    
-    <a href="career.html">進学・就職</a>
-    
-    <a href="exam.html">受験</a>
-    
-    <a href="interview.html">インタビュー</a>
-    
-    <a href="english.html">English</a>
-    
-    </div>
-    
-    </div>
-    
-    <a href="oshirase.html">お知らせ</a>
-    
-    <a href="about.html">新聞社について</a>
-    
-    </nav>
-    
-    </div>
-    
-    </header>
+    %s
     
     <main>
     
@@ -181,38 +135,40 @@ public class ArticlePageGenerator {
     
     </html>
     """.formatted(
-    
-        article.getTitle(),
-    
-        article.getCategory(),
-    
-        article.getCategory(),
-    
-        article.getTitle(),
-    
-        article.getDate(),
-    
-        article.getAuthor(),
-    
-        article.getTitle(),
-    
-        article.getLink(),
-    
-        article.getLink(),
-    
-        article.getTitle(),
-    
-        article.getLink(),
-    
-        article.getImage(),
-    
-        article.getTitle(),
-    
-        article.getCaption(),
-    
-        contentHtml
-    
-        );
+
+    article.getTitle(),
+
+    headerHtml,
+
+    article.getCategory(),
+
+    article.getCategory(),
+
+    article.getTitle(),
+
+    article.getDate(),
+
+    article.getAuthor(),
+
+    article.getTitle(),
+
+    article.getLink(),
+
+    article.getLink(),
+
+    article.getTitle(),
+
+    article.getLink(),
+
+    article.getImage(),
+
+    article.getTitle(),
+
+    article.getCaption(),
+
+    contentHtml
+
+);
     
         }
     

@@ -14,11 +14,17 @@ public class NewsPageGenerator {
                 new StringBuilder();
 
 
+        HeaderGenerator headerGenerator =
+                new HeaderGenerator();
+
+
+        String headerHtml =
+                headerGenerator.generateHeader();
+
 
         // 1ページの記事数
 
         int perPage = 10;
-
 
 
         // 新しい順に並び替え
@@ -27,13 +33,11 @@ public class NewsPageGenerator {
                 new ArrayList<>(articles);
 
 
-
         sortedArticles.sort((a, b) -> {
 
             return b.getDate().compareTo(a.getDate());
 
         });
-
 
 
         // ページ計算
@@ -45,10 +49,8 @@ public class NewsPageGenerator {
                 );
 
 
-
         int start =
                 (page - 1) * perPage;
-
 
 
         int end =
@@ -56,7 +58,6 @@ public class NewsPageGenerator {
                     start + perPage,
                     sortedArticles.size()
                 );
-
 
 
         html.append("""
@@ -79,82 +80,17 @@ public class NewsPageGenerator {
 </head>
 
 
-
 <body>
 
+""");
 
 
-<header>
+        // 共通ヘッダー
+
+        html.append(headerHtml);
 
 
-<div class="header-top">
-
-<div class="logo">
-
-<a href="index.html">
-
-<img src="images/logo.png" alt="長崎大学新聞社">
-
-</a>
-
-<p class="since">Since 2025</p>
-
-</div>
-
-</div>
-
-
-
-<div class="header-nav">
-
-
-<nav>
-
-<a href="index.html">ホーム</a>
-
-
-<div class="dropdown">
-
-
-<a href="news.html">ニュース</a>
-
-
-<div class="dropdown-content">
-
-
-<a href="news-category.html">ニュース</a>
-
-<a href="career.html">進学・就職</a>
-
-<a href="exam.html">受験</a>
-
-<a href="interview.html">インタビュー</a>
-
-<a href="english.html">English</a>
-
-
-</div>
-
-
-</div>
-
-
-<a href="oshirase.html">お知らせ</a>
-
-
-<a href="about.html">新聞社について</a>
-
-
-</nav>
-
-
-</div>
-
-
-</header>
-
-
-
+        html.append("""
 
 <main>
 
@@ -165,11 +101,9 @@ public class NewsPageGenerator {
 <h2>ニュース一覧</h2>
 
 
-
 <div class="news-grid">
 
 """);
-
 
 
         // 記事表示
@@ -179,7 +113,6 @@ public class NewsPageGenerator {
 
             Article article =
                     sortedArticles.get(i);
-
 
 
             html.append("""
@@ -249,11 +182,8 @@ public class NewsPageGenerator {
         }
 
 
-
-
         html.append("""
 </div>
-
 
 
 <div class="pagination">
@@ -261,9 +191,7 @@ public class NewsPageGenerator {
 """);
 
 
-
         // ページ番号
-
 
         if(page > 1){
 
@@ -278,7 +206,6 @@ public class NewsPageGenerator {
 ));
 
         }
-
 
 
         for(int i = 1; i <= totalPages; i++){
@@ -300,7 +227,6 @@ public class NewsPageGenerator {
             }
 
 
-
             html.append("""
 
 <a href="%s">
@@ -317,8 +243,6 @@ public class NewsPageGenerator {
 ));
 
         }
-
-
 
 
         if(page < totalPages){
@@ -342,7 +266,6 @@ public class NewsPageGenerator {
         }
 
 
-
         html.append("""
 </div>
 
@@ -351,8 +274,6 @@ public class NewsPageGenerator {
 
 
 </main>
-
-
 
 
 <footer>
@@ -370,30 +291,35 @@ public class NewsPageGenerator {
 """);
 
 
-
-return html.toString();
-
-
-}
+        return html.toString();
 
 
-private String createExcerpt(String content, int maxLength) {
-
-    if (content == null || content.isEmpty()) {
-        return "";
     }
 
-    String text = content
-            .replaceAll("\\s+", " ")
-            .trim();
 
-    if (text.length() <= maxLength) {
-        return text;
+    private String createExcerpt(
+            String content,
+            int maxLength
+    ) {
+
+        if (content == null || content.isEmpty()) {
+            return "";
+        }
+
+
+        String text = content
+                .replaceAll("\\s+", " ")
+                .trim();
+
+
+        if (text.length() <= maxLength) {
+            return text;
+        }
+
+
+        return text.substring(0, maxLength) + "…";
+
     }
-
-    return text.substring(0, maxLength) + "…";
-
-}
 
 
 }
