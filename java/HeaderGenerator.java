@@ -5,6 +5,8 @@ public class HeaderGenerator {
         return """
 <header>
 
+    <script src="js/main.js" defer></script>
+
     <div class="header-top">
 
         <div class="logo">
