@@ -877,3 +877,433 @@ footer{
     margin-top: 8px;
     line-height: 1.5;
 }
+
+/* ==========================
+   お知らせページ
+========================== */
+
+.oshirase-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.oshirase-item {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+    transition: .2s;
+}
+
+.oshirase-item:hover {
+    transform: translateY(-3px);
+}
+
+.oshirase-item img {
+    width: 260px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.oshirase-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.oshirase-content small {
+    display: block;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.oshirase-content h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+
+/* スマートフォン */
+
+@media (max-width: 768px) {
+
+    .oshirase-item {
+        flex-direction: column;
+    }
+
+    .oshirase-item img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .oshirase-content {
+        padding: 15px;
+    }
+
+}
+
+/* ==========================
+   新聞社について
+   ヒーロースライダー
+========================== */
+
+.about-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    height: 500px;
+
+    margin: 0 auto 70px;
+
+}
+
+
+/* 写真ブロック */
+
+.about-slider {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 82%;
+
+    height: 430px;
+
+    overflow: hidden;
+
+    background: #ddd;
+
+}
+
+
+/* スライド写真 */
+
+.about-slide {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0;
+
+    transition: opacity 1.2s ease;
+
+}
+
+
+/* 表示中 */
+
+.about-slide.active {
+
+    opacity: 1;
+
+}
+
+
+/* キャッチコピー */
+
+.about-catch {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 25px;
+
+    width: 48%;
+
+    min-height: 130px;
+
+    background: #111;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 30px;
+
+    z-index: 2;
+
+}
+
+
+/* キャッチコピー文字 */
+
+.about-catch p {
+
+    margin: 0;
+
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+
+    font-weight: bold;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+/* ==========================
+   スマートフォン
+========================== */
+
+@media (max-width: 768px) {
+
+    .about-hero {
+
+        height: 400px;
+
+        margin-bottom: 50px;
+
+    }
+
+
+    .about-slider {
+
+        width: 92%;
+
+        height: 330px;
+
+    }
+
+
+    .about-catch {
+
+        width: 65%;
+
+        min-height: 100px;
+
+        padding: 20px;
+
+        bottom: 20px;
+
+    }
+
+
+    .about-catch p {
+
+        font-size: 1.4rem;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .about-hero {
+
+        height: 330px;
+
+    }
+
+
+    .about-slider {
+
+        width: 95%;
+
+        height: 270px;
+
+    }
+
+
+    .about-catch {
+
+        width: 75%;
+
+        min-height: 85px;
+
+        padding: 15px;
+
+        bottom: 15px;
+
+    }
+
+
+    .about-catch p {
+
+        font-size: 1.15rem;
+
+    }
+
+}
+
+/* ==============================
+   新聞社について ヒーロー
+============================== */
+
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    background: #eee;
+}
+
+
+/* 写真スライダー */
+
+.about-hero-slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.about-hero-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+
+    animation: aboutSlide 16s infinite;
+}
+
+.about-hero-slider img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.about-hero-slider img:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.about-hero-slider img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.about-hero-slider img:nth-child(4) {
+    animation-delay: 12s;
+}
+
+
+/* キャッチコピー */
+
+.about-catch {
+    position: absolute;
+
+    left: 5%;
+    bottom: 12%;
+
+    z-index: 10;
+
+    transform: rotate(-6deg);
+
+    padding: 25px 70px 25px 35px;
+
+    color: white;
+
+    background: linear-gradient(
+        100deg,
+        rgba(0,0,0,0.95) 0%,
+        rgba(30,30,30,0.90) 35%,
+        rgba(90,90,90,0.65) 65%,
+        rgba(120,120,120,0.0) 100%
+    );
+
+    min-width: 520px;
+
+    clip-path: polygon(
+        0 0,
+        100% 10%,
+        88% 100%,
+        0 88%
+    );
+}
+
+
+/* 文字 */
+
+.about-catch span {
+    display: block;
+
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+
+    text-shadow:
+        2px 2px 5px rgba(0,0,0,0.4);
+}
+
+
+/* 写真スライド */
+
+@keyframes aboutSlide {
+
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* スマホ */
+
+@media (max-width: 768px) {
+
+    .about-hero {
+        height: 420px;
+    }
+
+    .about-hero-slider {
+        width: 100%;
+    }
+
+    .about-catch {
+        left: 3%;
+        bottom: 10%;
+
+        min-width: auto;
+        width: 90%;
+
+        padding: 20px 45px 20px 20px;
+
+        transform: rotate(-5deg);
+    }
+
+    .about-catch span {
+        font-size: 2rem;
+    }
+
+}

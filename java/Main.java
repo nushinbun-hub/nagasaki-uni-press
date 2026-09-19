@@ -208,6 +208,37 @@ HtmlUpdater.savePage(
         )
 );
 
+// お知らせページ生成
+
+OshiraseReader oshiraseReader =
+        new OshiraseReader();
+
+java.util.ArrayList<Oshirase> oshiraseList =
+        oshiraseReader.readOshirase(
+                "oshirase.csv"
+        );
+
+OshirasePageGenerator oshiraseGenerator =
+        new OshirasePageGenerator();
+
+HtmlUpdater.savePage(
+        "oshirase.html",
+        oshiraseGenerator.generateOshirasePage(
+                oshiraseList
+        )
+);
+
+// 新聞社についてページ生成
+
+AboutPageGenerator aboutGenerator =
+        new AboutPageGenerator();
+
+HtmlUpdater.savePage(
+        "about.html",
+        aboutGenerator.generateAboutPage()
+);
+
+
 // 検索ページ
 
 SearchPageGenerator searchGenerator =
