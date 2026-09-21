@@ -174,40 +174,55 @@ public class ArticlePageGenerator {
     
     
         private String convertContentToHtml(
-                String content
-        ) {
-        
-            if (content == null || content.isEmpty()) {
-                return "";
-            }
-        
-            StringBuilder html =
-                    new StringBuilder();
-        
-            String[] paragraphs =
-                    content.split("\\\\n\\\\n");
-        
-            for (String paragraph : paragraphs) {
-        
-                if (paragraph.trim().isEmpty()) {
-                    continue;
-                }
-        
-                String text =
-                        paragraph
-                                .replace("\\n", "<br>\n")
-                                .trim();
-        
-                html.append("<p>\n");
-        
-                html.append(text);
-        
-                html.append("\n</p>\n");
-        
-            }
-        
-            return html.toString();
-        
+            String content
+    ) {
+    
+        if (content == null || content.isEmpty()) {
+            return "";
         }
     
+        StringBuilder html =
+                new StringBuilder();
+    
+        String[] paragraphs =
+                content.split("\\\\n\\\\n");
+    
+        for (String paragraph : paragraphs) {
+    
+            if (paragraph.trim().isEmpty()) {
+                continue;
+            }
+    
+            String text =
+                    paragraph.trim();
+    
+            // 中見出し
+            if (text.startsWith("##")) {
+    
+                String heading =
+                        text.substring(2).trim();
+    
+                html.append("<h2>\n");
+                html.append(heading);
+                html.append("\n</h2>\n");
+    
+            }
+    
+            // 通常の本文
+            else {
+    
+                text =
+                        text.replace("\\n", "<br>\n");
+    
+                html.append("<p>\n");
+                html.append(text);
+                html.append("\n</p>\n");
+    
+            }
+    
+        }
+    
+        return html.toString();
+    
     }
+}

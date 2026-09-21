@@ -185,8 +185,10 @@ private String createExcerpt(String content, int maxLength) {
     }
 
     String text = content
-            .replaceAll("\\s+", " ")
-            .trim();
+        .replace("\\n", " ")
+        .replaceAll("\\s+", " ")
+        .trim();
+
 
     if (text.length() <= maxLength) {
         return text;

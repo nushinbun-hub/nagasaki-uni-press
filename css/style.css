@@ -263,55 +263,15 @@ footer{
 }
 
 .category {
-
     display: inline-block;
-
     padding: 4px 12px;
-
     margin-bottom: 10px;
-
     font-size: 0.85rem;
-
     border-radius: 20px;
-
-    color: white;
-
+    background-color: #444 !important;
+    color: #fff !important;
 }
 
-
-/* ニュース：青 */
-.category.ニュース {
-
-    background-color: #f2f3f4;
-
-}
-
-
-/* 進学・就職：オレンジ */
-.category.進学・就職 {
-
-    background-color: #fefefe;
-
-}
-
-
-/* 受験：赤 */
-.category.受験 {
-
-    background-color: #ffffff;
-
-}
-
-/* インタビュー：緑 */
-.category.インタビュー {
-    background-color: #388e3c;
-}
-
-
-/* English：紫 */
-.category.English {
-    background-color: #7b1fa2;
-}
 
 /* ドロップダウンメニュー */
 
@@ -845,6 +805,19 @@ footer{
 .article-content p {
     margin-bottom: 1.5em;
 }
+
+.article-content h2 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #222;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    padding-left: 12px;
+    border-left: 4px solid #0000cd;
+}
+
 
 .article-page h1 {
     font-family: "Noto Serif JP", serif;
