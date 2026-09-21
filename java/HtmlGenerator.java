@@ -186,9 +186,9 @@ private String createExcerpt(String content, int maxLength) {
 
     String text = content
         .replace("\\n", " ")
+        .replaceAll("##\\s*", "")
         .replaceAll("\\s+", " ")
         .trim();
-
 
     if (text.length() <= maxLength) {
         return text;
@@ -197,6 +197,7 @@ private String createExcerpt(String content, int maxLength) {
     return text.substring(0, maxLength) + "…";
 
 }
+
 
 
 }
