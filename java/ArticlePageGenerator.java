@@ -25,7 +25,8 @@ public class ArticlePageGenerator {
     
     <title>%s | 長崎大学新聞社</title>
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.jpg">
+<link rel="stylesheet" href="css/style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

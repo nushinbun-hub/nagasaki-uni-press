@@ -27,6 +27,7 @@ public class SearchPageGenerator {
 <title>検索結果 | 長崎大学新聞社</title>
 
 
+<link rel="icon" href="images/favicon.jpg">
 <link rel="stylesheet" href="css/style.css">
 
 </head>
