@@ -148,25 +148,35 @@ public class HtmlGenerator {
 
             html.append("""
 
-<a href="%s">
-
-
-<img src="%s" alt="%s">
-
-
-</a>
-
-
-"""
-.formatted(
-
-        article.getLink(),
-
-        article.getImage(),
-
-        article.getTitle()
-
-));
+                <a href="%s" class="featured-item">
+                
+                    <img src="%s" alt="%s">
+                
+                    <div class="featured-overlay">
+                
+                        <h3>%s</h3>
+                
+                        <time>%s</time>
+                
+                    </div>
+                
+                </a>
+                
+                """
+                .formatted(
+                
+                        article.getLink(),
+                
+                        article.getImage(),
+                
+                        article.getTitle(),
+                
+                        article.getTitle(),
+                
+                        article.getDate()
+                
+                ));
+                
 
         }
 
