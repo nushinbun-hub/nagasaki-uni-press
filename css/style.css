@@ -344,6 +344,43 @@ footer{
 }
 
 /* ==============================
+   ヘッダーSNS
+============================== */
+
+.header-sns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+    margin-right: 25px;
+}
+
+.header-sns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sns-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.header-sns a:hover {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
+
+
+.header-sns a:hover {
+    opacity: 0.6;
+}
+
+
+/* ==============================
    ニュース一覧ボタン
 ============================== */
 
@@ -733,6 +770,53 @@ footer{
     transform: scale(1.1);
 
 }
+
+.share-button {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.share-button:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+/* X */
+.share-button:nth-child(1) {
+    background: #000;
+}
+
+.x-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* LINE */
+.share-button:nth-child(2) {
+    background: #06C755;
+}
+
+.line-icon {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* メール */
+.share-button:nth-child(3) {
+    background: #555;
+}
+
+.mail-icon {
+    font-size: 20px;
+}
+
 /* ==========================
    記事ページ
 ========================== */

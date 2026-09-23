@@ -67,7 +67,7 @@ public class ArticlePageGenerator {
                 target="_blank"
                 class="share-button">
     
-                🐦
+                <span class="x-icon">X</span>
     
                 </a>
     
@@ -76,7 +76,7 @@ public class ArticlePageGenerator {
                 target="_blank"
                 class="share-button">
     
-                💬
+               <span class="line-icon">LINE</span>
     
                 </a>
     
@@ -84,7 +84,8 @@ public class ArticlePageGenerator {
                 href="mailto:?subject=%s&body=https://nushinbun-hub.github.io/nagasaki-uni-press/%s"
                 class="share-button">
     
-                ✉
+               <span class="mail-icon">✉</span>
+
     
                 </a>
     
