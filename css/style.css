@@ -1298,3 +1298,111 @@ footer{
 
     color: rgba(255, 255, 255, 0.9);
 }
+
+/* ==========================
+   ジェンダー企画
+========================== */
+
+.gender-feature {
+
+    animation: fadeUp 1.4s ease;
+
+    margin-top: 60px;
+
+    text-align: center;
+
+}
+
+.gender-feature h2 {
+
+    margin-bottom: 25px;
+
+}
+
+.gender-feature a {
+
+    display: block;
+
+}
+
+.gender-feature img {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    border-radius: 8px;
+
+}
+
+/* ==========================
+   語ろう、性のこと。ページ
+========================== */
+
+.gender-feature-page {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 40px;
+}
+
+.gender-feature-page img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* スマートフォン */
+@media (max-width: 768px) {
+
+    .gender-feature-page {
+        width: 100%;
+        margin: 20px auto 30px;
+    }
+
+    .gender-feature-page img {
+        width: 100%;
+        height: auto;
+    }
+
+}
+
+/* ==========================
+   語ろう、性のこと。紹介文
+========================== */
+
+.gender-introduction {
+    max-width: 800px;
+    margin: 30px auto 50px;
+    padding: 0 20px;
+}
+
+.gender-introduction p {
+    font-size: 1.05rem;
+    line-height: 2;
+    margin: 0;
+}
+
+
+/* スマートフォン */
+
+@media (max-width: 768px) {
+
+    .gender-introduction {
+        margin: 25px auto 40px;
+        padding: 0 15px;
+    }
+
+    .gender-introduction p {
+        font-size: 0.95rem;
+        line-height: 1.9;
+    }
+
+}

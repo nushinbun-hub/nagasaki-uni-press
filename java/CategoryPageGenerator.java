@@ -63,13 +63,35 @@ public class CategoryPageGenerator {
 
 <h2>%s</h2>
 
+%s
 
 <div class="news-grid">
 
 """
         .formatted(
-            category
-        ));
+                category,
+                category.equals("語ろう、性のこと。")
+                    ? """
+                     <div class="gender-feature-page">
+
+    <img
+        src="images/gender-feature.jpg"
+        alt="語ろう、性のこと。">
+
+    <div class="gender-introduction">
+
+        <p>
+        「女らしさ」「男らしさ」って、誰が決めたの？「普通の家族」って、どんな家族？私たちの身の回りには「当たり前」とされている性のかたちがたくさんあります。長大生の経験や声を手がかりに、一緒に考えてみませんか？
+        </p>
+
+    </div>
+
+</div>
+
+                      """
+                    : ""
+            ));
+            
 
 
         for(Article article : articles){

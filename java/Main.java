@@ -208,6 +208,16 @@ HtmlUpdater.savePage(
         )
 );
 
+// 語ろう、性のこと。
+HtmlUpdater.savePage(
+        "gender.html",
+        categoryGenerator.generateCategoryPage(
+                "語ろう、性のこと。",
+                manager.getArticlesByCategory("語ろう、性のこと。")
+        )
+);
+
+
 // お知らせページ生成
 
 OshiraseReader oshiraseReader =
