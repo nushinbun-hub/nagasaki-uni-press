@@ -299,28 +299,31 @@ public class NewsPageGenerator {
 
 
     private String createExcerpt(
-            String content,
-            int maxLength
-    ) {
+        String content,
+        int maxLength
+) {
 
-        if (content == null || content.isEmpty()) {
-            return "";
-        }
-
-
-        String text = content
-                .replaceAll("\\s+", " ")
-                .trim();
-
-
-        if (text.length() <= maxLength) {
-            return text;
-        }
-
-
-        return text.substring(0, maxLength) + "…";
-
+    if (content == null || content.isEmpty()) {
+        return "";
     }
+
+
+    String text = content
+            .replace("\\n", " ")
+            .replaceAll("##\\s*", "")
+            .replaceAll("\\s+", " ")
+            .trim();
+
+
+    if (text.length() <= maxLength) {
+        return text;
+    }
+
+
+    return text.substring(0, maxLength) + "…";
+
+}
+
 
 
 }
