@@ -25,10 +25,16 @@ public class AboutPageGenerator {
 <title>新聞社について | 長崎大学新聞社</title>
 
 <link rel="icon" href="images/favicon.jpg">
+
 <link rel="stylesheet"
       href="css/style.css">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
+
 
 <body>
 

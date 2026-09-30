@@ -917,18 +917,21 @@ footer{
 .oshirase-content {
     padding: 20px;
     flex: 1;
+    font-family: "Noto Serif JP", serif;
 }
 
 .oshirase-content small {
     display: block;
     color: #777;
     margin-bottom: 8px;
+    font-family: "Noto Serif JP", serif;
 }
 
 .oshirase-content h3 {
     margin: 0;
     font-size: 1.3rem;
     color: #333;
+    font-family: "Noto Serif JP", serif;
 }
 
 
@@ -1364,4 +1367,34 @@ footer{
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ==========================
+   本文フォント統一
+   記事・新聞社について・お知らせ
+========================== */
+
+/* 新聞社について */
+.about-content {
+    font-family: "Noto Serif JP", serif;
+    font-size: 16px;
+    line-height: 2;
+    color: #222;
+}
+
+.about-content p {
+    margin-bottom: 1.5em;
+}
+
+/* お知らせ */
+.oshirase-content {
+    font-family: "Noto Serif JP", serif;
+}
+
+.oshirase-content small {
+    font-family: "Noto Serif JP", serif;
+}
+
+.oshirase-content h3 {
+    font-family: "Noto Serif JP", serif;
 }
