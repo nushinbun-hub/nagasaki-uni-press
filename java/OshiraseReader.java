@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class OshiraseReader {
                 String date =
                         data[2].trim();
 
-                String image =
+                String url =
                         data[3].trim();
 
                 Oshirase oshirase =
@@ -55,14 +56,13 @@ public class OshiraseReader {
                             id,
                             title,
                             date,
-                            image
+                            url
                         );
 
                 oshiraseList.add(oshirase);
             }
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
 
             System.out.println(
                 "お知らせCSV読み込みエラー: "
@@ -73,3 +73,4 @@ public class OshiraseReader {
         return oshiraseList;
     }
 }
+

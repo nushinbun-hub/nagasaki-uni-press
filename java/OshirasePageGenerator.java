@@ -1,13 +1,37 @@
+
 import java.util.ArrayList;
 
 public class OshirasePageGenerator {
+
+    private String escapeHtml(String value) {
+        if (value == null) {
+            return "";
+        }
+
+        return value
+                .replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;")
+                .replace("'", "&#39;");
+    }
+
+    private boolean isValidUrl(String url) {
+        if (url == null || url.trim().isEmpty()) {
+            return false;
+        }
+
+        String normalized = url.trim().toLowerCase();
+
+        return normalized.startsWith("https://")
+                || normalized.startsWith("http://");
+    }
 
     public String generateOshirasePage(
             ArrayList<Oshirase> oshiraseList
     ) {
 
-        StringBuilder html =
-                new StringBuilder();
+        StringBuilder html = new StringBuilder();
 
         HeaderGenerator headerGenerator =
                 new HeaderGenerator();
@@ -18,94 +42,80 @@ public class OshirasePageGenerator {
         html.append("""
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お知らせ | 長崎大学新聞社</title>
-
 <link rel="icon" href="images/favicon.jpg">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap"
-      rel="stylesheet">
-
-<link rel="stylesheet"
-      href="css/style.css">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
 """);
 
         html.append(headerHtml);
 
         html.append("""
 <main>
-
 <section class="oshirase-page">
-
 <h2>お知らせ</h2>
-
 <div class="oshirase-list">
-
 """);
 
         for (Oshirase oshirase : oshiraseList) {
 
+            String title =
+                    escapeHtml(oshirase.getTitle());
+
+            String date =
+                    escapeHtml(oshirase.getDate());
+
+            String url = oshirase.getUrl();
+
+            String titleHtml;
+
+            if (isValidUrl(url)) {
+                String safeUrl =
+                        escapeHtml(url.trim());
+
+                titleHtml =
+                        "<a href=\"" + safeUrl
+                        + "\" target=\"_blank\" "
+                        + "rel=\"noopener noreferrer\">"
+                        + title
+                        + "</a>";
+            } else {
+                titleHtml = title;
+            }
+
             html.append("""
 <article class="oshirase-item">
-
-<img src="%s" alt="%s">
-
 <div class="oshirase-content">
-
 <small>%s</small>
-
 <h3>%s</h3>
-
 </div>
-
 </article>
-
-"""
-            .formatted(
-                oshirase.getImage(),
-                oshirase.getTitle(),
-                oshirase.getDate(),
-                oshirase.getTitle()
+""".formatted(
+                date,
+                titleHtml
             ));
         }
 
         html.append("""
 </div>
-
 </section>
-
 </main>
-
 <footer>
-
 <p>&copy; 2025 長崎大学新聞社</p>
-
 </footer>
-
 </body>
-
 </html>
 """);
 
         return html.toString();
     }
 }
+
 

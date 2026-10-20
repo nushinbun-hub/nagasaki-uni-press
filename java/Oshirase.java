@@ -1,20 +1,21 @@
+
 public class Oshirase {
 
     private int id;
     private String title;
     private String date;
-    private String image;
+    private String url;
 
     public Oshirase(
             int id,
             String title,
             String date,
-            String image
+            String url
     ) {
         this.id = id;
         this.title = title;
         this.date = date;
-        this.image = image;
+        this.url = url;
     }
 
     public int getId() {
@@ -29,7 +30,9 @@ public class Oshirase {
         return date;
     }
 
-    public String getImage() {
-        return image;
+    public String getUrl() {
+        return url;
     }
 }
+
+
