@@ -128,53 +128,56 @@ public class HtmlGenerator {
 
 
 
+
     // ==============================
-// 注目記事（1件のみ表示）
-// ==============================
+    // 注目記事（1件のみ・縦型レイアウト）
+    // ==============================
 
-public String generateFeaturedHtml(
-    ArrayList<Article> articles
-){
+    public String generateFeaturedHtml(
+        ArrayList<Article> articles
+) {
 
-StringBuilder html = new StringBuilder();
+    StringBuilder html = new StringBuilder();
 
-if (articles == null || articles.isEmpty()) {
-    return "";
+    if (articles == null || articles.isEmpty()) {
+        return "";
+    }
+
+    // 注目記事を1件だけ表示
+    Article article = articles.get(0);
+
+    html.append("""
+        <a href="%s" class="featured-item">
+
+            <div class="featured-content">
+
+                <h3>%s</h3>
+
+                <time>%s</time>
+
+                <p>%s</p>
+
+                <span class="featured-read-more">
+                    記事を読む →
+                </span>
+
+            </div>
+
+            <img src="%s" alt="%s">
+
+        </a>
+        """.formatted(
+            article.getLink(),
+            article.getTitle(),
+            article.getDate(),
+            createExcerpt(article.getContent(), 100),
+            article.getImage(),
+            article.getTitle()
+        ));
+
+    return html.toString();
 }
 
-// 一番読んでほしい記事を1件だけ表示
-Article article = articles.get(0);
-
-html.append("""
-
-    <a href="%s" class="featured-item">
-
-        <img src="%s" alt="%s">
-
-        <div class="featured-overlay">
-
-            <h3>%s</h3>
-
-            <time>%s</time>
-
-            <span class="featured-read-more">
-                記事を読む →
-            </span>
-
-        </div>
-
-    </a>
-
-    """.formatted(
-        article.getLink(),
-        article.getImage(),
-        article.getTitle(),
-        article.getTitle(),
-        article.getDate()
-    ));
-
-return html.toString();
-}
 
 private String createExcerpt(String content, int maxLength) {
 
