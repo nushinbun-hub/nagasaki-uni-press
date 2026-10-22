@@ -1,0 +1,197 @@
+import java.util.ArrayList;
+
+
+public class HtmlGenerator {
+
+
+    // ==============================
+    // ホーム最新記事（6件）
+    // ==============================
+
+    public String generateNewsHtml(
+            ArrayList<Article> articles
+    ){
+
+
+        StringBuilder html =
+                new StringBuilder();
+
+
+
+        // 新しい順に並び替え
+
+        ArrayList<Article> sortedArticles =
+                new ArrayList<>(articles);
+
+
+
+        sortedArticles.sort((a, b) -> {
+
+            return b.getDate().compareTo(a.getDate());
+
+        });
+
+
+
+        int count = 0;
+
+
+
+        for(Article article : sortedArticles){
+
+
+            if(count >= 6){
+
+                break;
+
+            }
+
+
+            count++;
+
+
+
+            html.append("""
+
+<article class="news-item">
+
+
+<img src="%s" alt="%s">
+
+
+<div class="news-content">
+
+
+<p class="category %s">
+
+%s
+
+</p>
+
+
+<h3>%s</h3>
+
+
+<p>%s</p>
+
+
+<small>%s</small>
+
+
+<br><br>
+
+
+<a href="%s">
+
+続きを読む →
+
+</a>
+
+
+</div>
+
+
+</article>
+
+
+"""
+.formatted(
+
+        article.getImage(),
+
+        article.getTitle(),
+
+        article.getCategory(),
+
+        article.getCategory(),
+
+        article.getTitle(),
+
+        createExcerpt(article.getContent(), 100),
+
+        article.getDate(),
+
+        article.getLink()
+
+));
+
+        }
+
+
+
+        return html.toString();
+
+
+    }
+
+
+
+
+
+    // ==============================
+// 注目記事（1件のみ表示）
+// ==============================
+
+public String generateFeaturedHtml(
+    ArrayList<Article> articles
+){
+
+StringBuilder html = new StringBuilder();
+
+if (articles == null || articles.isEmpty()) {
+    return "";
+}
+
+// 一番読んでほしい記事を1件だけ表示
+Article article = articles.get(0);
+
+html.append("""
+
+    <a href="%s" class="featured-item">
+
+        <img src="%s" alt="%s">
+
+        <div class="featured-overlay">
+
+            <h3>%s</h3>
+
+            <time>%s</time>
+
+            <span class="featured-read-more">
+                記事を読む →
+            </span>
+
+        </div>
+
+    </a>
+
+    """.formatted(
+        article.getLink(),
+        article.getImage(),
+        article.getTitle(),
+        article.getTitle(),
+        article.getDate()
+    ));
+
+return html.toString();
+}
+
+private String createExcerpt(String content, int maxLength) {
+
+    if (content == null || content.isEmpty()) {
+        return "";
+    }
+
+    String text = content
+        .replace("\\n", " ")
+        .replaceAll("##\\s*", "")
+        .replaceAll("\\s+", " ")
+        .trim();
+
+    if (text.length() <= maxLength) {
+        return text;
+    }
+
+    return text.substring(0, maxLength) + "…";
+}
+}
