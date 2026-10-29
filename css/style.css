@@ -835,12 +835,36 @@ footer{
 
 .article-page h1 {
     font-family: "Noto Serif JP", serif;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.4;
     color: #222;
     text-align: left;
     margin-bottom: 10px;
+}
+
+/* スマートフォンの記事タイトル */
+@media (max-width: 768px) {
+    .article-page h1 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
+}.article-page h1 {
+    font-family: "Noto Serif JP", serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #222;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* スマートフォンの記事タイトル */
+@media (max-width: 768px) {
+    .article-page h1 {
+        font-size: 22px;
+        line-height: 1.4;
+    }
 }
 
 .article-date {
@@ -1508,3 +1532,4 @@ footer{
     }
 
 }
+
