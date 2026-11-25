@@ -298,7 +298,8 @@ public class NewsPageGenerator {
     }
 
 
-    private String createExcerpt(
+    
+private String createExcerpt(
         String content,
         int maxLength
 ) {
@@ -307,23 +308,17 @@ public class NewsPageGenerator {
         return "";
     }
 
-
     String text = content
             .replace("\\n", " ")
+            .replace("\n", " ")
             .replaceAll("##\\s*", "")
             .replaceAll("\\s+", " ")
             .trim();
-
 
     if (text.length() <= maxLength) {
         return text;
     }
 
-
     return text.substring(0, maxLength) + "…";
-
 }
-
-
-
 }
